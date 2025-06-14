@@ -1,14 +1,30 @@
 // Code your solution here
-const driversMatch = drivers.filter(function findMatching(driversarray, name){
-
-    return driversMatch.toLowerCase()===name.toLowerCase();
+const cityDrivers = drivers.filter(function(driver){
+   return driver.city==="Nairobi";
 });
 
-function findMatching(driversArray, nameToMatch){
-    const result = driversArray.filter(function(driverName){
-        return driverName.toLowerCase() === nameToMatch;
+// driversName=[driver 1. driver 2, driver 2]
+function findMatching(driversName, nameToMatch){
+    const matchingDrivers= driversName.filter(function(driverName){
+       return driverName.toLowerCase() ===nameToMatch.toLowerCase();        
     });
-    return result;
-
+    return matchingDrivers
 }
-const drivers=["bobby", "cheryl", "bobby"];
+
+
+//fuzzyMatch
+function fuzzyMatch(driversName, letterToMatch){
+    const fuzzyDrivers = driversName.filter(function(driverName){
+    return driverName.startsWith(letterToMatch);
+    });
+    return fuzzyDrivers;
+}
+
+//matchName function
+function matchName(arrayObject, nameToMatch){
+    const namePropertyMatch = arrayObject.filter(function(driver){
+        return driver.name===nameToMatch;
+
+    });
+    return namePropertyMatch;
+}
